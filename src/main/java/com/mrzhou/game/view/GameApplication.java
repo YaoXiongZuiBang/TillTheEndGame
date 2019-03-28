@@ -2,6 +2,8 @@ package com.mrzhou.game.view;
 
 import com.mrzhou.game.view.common.SingletonFrame;
 
+import java.awt.*;
+
 
 /**
  * 类说明：启动类
@@ -13,6 +15,6 @@ import com.mrzhou.game.view.common.SingletonFrame;
 public class GameApplication{
 
     public static void main(String[] args) {
-        SingletonFrame.getInstance();
+        EventQueue.invokeLater(SingletonFrame::getInstance);
     }
 }

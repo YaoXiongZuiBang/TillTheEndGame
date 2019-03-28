@@ -3,6 +3,7 @@ package com.mrzhou.game.view.panel;
 import com.mrzhou.game.view.common.BackgroundPanel;
 import com.mrzhou.game.view.common.ButtonFactory;
 import com.mrzhou.game.view.common.SingletonFrame;
+import com.mrzhou.game.view.handler.StartGameHander;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,14 +35,7 @@ public class IndexPanel{
         //开始战斗按钮
         Image startImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/btn/start.png"));
         start = ButtonFactory.makeButton(startImg, 500, 565);
-        start.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                RolePanel rolePanel = new RolePanel();
-                SingletonFrame frame = SingletonFrame.getInstance();
-                frame.nextPanel(rolePanel.getPanel());
-            }
-        });
+        start.addMouseListener(new StartGameHander());
         panel.add(start);
     }
 
