@@ -13,10 +13,10 @@ import lombok.Data;
 @Data
 public class Player {
     // 用户名
-    private String playerName;
+//    private int playerName;
 
     // 密码
-    private String password;
+//    private String password;
 
     // 经验
     private int experience;
@@ -30,4 +30,13 @@ public class Player {
     // 角色
     private Hero hero;
 
+    public Player(){
+        experience = 0;
+        level = 0;
+        money = 0;
+    }
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
 }
