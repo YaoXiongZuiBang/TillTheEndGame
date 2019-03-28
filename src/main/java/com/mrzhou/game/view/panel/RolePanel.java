@@ -2,6 +2,8 @@ package com.mrzhou.game.view.panel;
 
 import com.mrzhou.game.view.common.BackgroundPanel;
 import com.mrzhou.game.view.common.ButtonFactory;
+import com.mrzhou.game.view.common.SingletonFrame;
+import com.mrzhou.game.view.handler.ChooseRoleHander;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,31 +17,35 @@ import java.awt.event.MouseEvent;
  * 包名：com.mrzhou.game.view.panel
  */
 
-public class RolePanel {
+public class    RolePanel {
 
     private BackgroundPanel panel;
 
-    private JButton start;
+//    private JButton fighter;
+
+    private JButton role;
 
 
     public RolePanel() {
         //背景
-        Image backImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/background/role.png"));
+        Image backImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/background/choose_bg.jpg"));
         ImageIcon backIcon = new ImageIcon(backImg);
         panel = new BackgroundPanel(backIcon.getImage());
         panel.setBounds(0,0,backIcon.getIconWidth(),backIcon.getIconHeight());
         panel.setLayout(null);
 
-//        //开始战斗按钮
-//        Image startImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/btn/start.png"));
-//        start = ButtonFactory.makeButton(startImg, 500, 565);
-//        start.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                System.out.println("12345");
-//            }
-//        });
-//        panel.add(start);
+        //选择角色
+        ChooseRole("/img/hero/hero-1.png",100,100,"warrior");
+        ChooseRole("/img/hero/hero-2.png",480,100,"knight");
+        ChooseRole("/img/hero/hero-3.png",860,100,"thief");
+    }
+
+    public void ChooseRole(String picture,int x,int y,String name){
+        Image startImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource(picture));
+        role = ButtonFactory.makeButton(startImg, x, y);
+        role.setName(name);
+        role.addMouseListener(new ChooseRoleHander());
+        panel.add(role);
     }
 
 

@@ -8,6 +8,21 @@ package com.mrzhou.game.module.hero;
  */
 
 public class Knight extends Hero{
+    BloodAttribute bloodAttribute = new HighBlood();
+    EnergyAttribute energyAttribute = new ComEnergy();
+    AttackAttribute attackAttribute = new ComAttack();
+    DefenceAttribute defenceAttribute = new HighDefence();
+    SpeedAttribute speedAttribute = new ComSpeed();
+
+    public Knight(){
+        String roleName = "圣骑士";
+        setName(roleName);
+        setBlood(bloodAttribute);
+        setEnergy(energyAttribute);
+        setAttack(attackAttribute);
+        setDefence(defenceAttribute);
+        setSpeed(speedAttribute);
+    }
 
     @Override
     public void attack() {

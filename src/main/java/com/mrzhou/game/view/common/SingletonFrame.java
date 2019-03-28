@@ -1,7 +1,7 @@
 package com.mrzhou.game.view.common;
 
 
-import com.apple.eawt.Application;
+//import com.apple.eawt.Application;
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.view.panel.IndexPanel;
 
@@ -47,10 +47,10 @@ public class SingletonFrame extends JFrame {
         currentPanel = indexPanel.getPanel();
         this.add(currentPanel);
 
-        //应用Icon
-        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/icon/icon.png"));
-        Application app = Application.getApplication();
-        app.setDockIconImage(icon);
+//        //应用Icon
+//        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/icon/icon.png"));
+//        Application app = Application.getApplication();
+//        app.setDockIconImage(icon);
 
         this.setSize(ConstantsUtil.WIDTH,ConstantsUtil.HEIGHT);
         this.setLocationRelativeTo(null);

@@ -3,6 +3,7 @@ package com.mrzhou.game.module.hero;
 import com.mrzhou.game.module.skill.Skill;
 import lombok.Data;
 
+import javax.management.relation.Role;
 import java.util.List;
 
 /**
@@ -33,7 +34,34 @@ public abstract class Hero {
     // 速度
     private int speed;
 
+    // 技能(未实现)
     private List<Skill> skillList;
+
+    //外观（未实现）
+    private String dispaly;
+
+    //设置名字
+    public void setName(String name){
+        this.name = name;
+    }
+
+    //接口类型
+    public void setBlood(BloodAttribute bloodAttribute){
+        blood = bloodAttribute.setBlood();
+    }
+    public void setEnergy(EnergyAttribute energyAttribute){
+        energy = energyAttribute.setEnergy();
+    }
+    public void setAttack(AttackAttribute attackAttribute){
+        attack = attackAttribute.setAttack();
+    }
+    public void setDefence(DefenceAttribute defenceAttribute){
+        defence = defenceAttribute.setDefence();
+    }
+    public void setSpeed(SpeedAttribute speedAttribute){
+        speed = speedAttribute.setSpeed();
+    }
+
 
 
     public abstract void attack();
