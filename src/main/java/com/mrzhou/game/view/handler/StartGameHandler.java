@@ -5,6 +5,7 @@ import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.util.FileUtil;
 import com.mrzhou.game.view.common.SingletonFrame;
 import com.mrzhou.game.view.panel.ChapterPanel;
+import com.mrzhou.game.view.panel.RoleChoosePanel;
 import com.mrzhou.game.view.panel.RolePanel;
 
 import java.awt.event.MouseAdapter;
@@ -27,9 +28,9 @@ public class StartGameHandler extends MouseAdapter {
         super.mouseClicked(e);
         Player player = FileUtil.readFile(ConstantsUtil.USERINFO_PATH, Player.class);
         if(player == null || player.getHero() == null){
-            RolePanel rolePanel = new RolePanel();
+            RoleChoosePanel rolechoosePanel = new RoleChoosePanel();
             SingletonFrame frame = SingletonFrame.getInstance();
-            frame.nextPanel(rolePanel.getPanel());
+            frame.nextPanel(rolechoosePanel.getPanel());
         }else{
             ChapterPanel chapterPanel = new ChapterPanel();
             SingletonFrame frame = SingletonFrame.getInstance();

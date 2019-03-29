@@ -12,8 +12,11 @@ public class MapDirector {
     }
 
     public MapPanel construct(){
+        mapBuilder.buildBg();
         mapBuilder.buildBackground();
         mapBuilder.buildFloor();
+        mapBuilder.buildPlayer();
+        mapBuilder.buildNPC();
         mapBuilder.buildObstacle();
         return mapBuilder.getResult();
     }

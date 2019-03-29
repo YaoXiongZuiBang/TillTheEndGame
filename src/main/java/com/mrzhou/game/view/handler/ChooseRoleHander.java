@@ -3,6 +3,7 @@ package com.mrzhou.game.view.handler;
 import com.mrzhou.game.module.hero.Hero;
 import com.mrzhou.game.module.hero.HeroFactory;
 import com.mrzhou.game.view.common.SingletonFrame;
+import com.mrzhou.game.view.panel.BattlePanel;
 import com.mrzhou.game.view.panel.WeaponChoosePanel;
 
 import javax.swing.*;
@@ -13,6 +14,7 @@ public class ChooseRoleHander extends MouseAdapter {
 
     public void mouseClicked(MouseEvent e){
         super.mouseClicked(e);
+        //跳转选择武器界面
         WeaponChoosePanel weaponChoosePanel = new WeaponChoosePanel();
         SingletonFrame frame = SingletonFrame.getInstance();
         frame.nextPanel(weaponChoosePanel.getPanel());
