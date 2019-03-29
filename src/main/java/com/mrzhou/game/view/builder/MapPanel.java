@@ -4,7 +4,6 @@ import com.mrzhou.game.view.common.BackgroundPanel;
 import lombok.Data;
 
 import javax.swing.*;
-import java.awt.*;
 
 @Data
 public class MapPanel {

@@ -2,8 +2,6 @@ package com.mrzhou.game.util;
 
 
 import com.alibaba.fastjson.JSON;
-import com.mrzhou.game.model.BaseHero;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;
@@ -29,12 +27,29 @@ public class FileUtil {
         try {
             InputStream stream = FileUtil.class.getResourceAsStream("/"+path);
             String content = IOUtils.toString(stream, "UTF-8");
+            System.out.println("content:"+content);
             return JSON.parseObject(content, tClass);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
 
+    }
+
+    /**
+     * 读文件
+     * @param path 相对路径 如 cache/path.json
+     * @return
+     */
+    public static String readFile(String path){
+        try {
+            InputStream stream = FileUtil.class.getResourceAsStream("/"+path);
+            String content = IOUtils.toString(stream, "UTF-8");
+            return content;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 

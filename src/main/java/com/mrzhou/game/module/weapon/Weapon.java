@@ -5,16 +5,21 @@ import lombok.Data;
 
 @Data
 public abstract class Weapon {
+    //类型
+    String type;
+
     //武器名
-    private String weaponName;
-    //攻击值
-    private int weaponAttack;
-    //防御值
-    private int weaponDefence;
-    //能量值
-    private int weaponEnger;
+    String name;
+
     //等级
-    private int level;
+    Integer level;
+
+    //攻击值
+    Integer attackPlus;
+
+    //防御值
+    Integer defencePlus;
+
 
     //增加人物属性
     public abstract void addAttribute(Hero hero);

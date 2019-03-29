@@ -2,12 +2,12 @@ package com.mrzhou.game.view.common;
 
 
 //import com.apple.eawt.Application;
+
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.view.handler.WindowHandler;
 import com.mrzhou.game.view.panel.IndexPanel;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * 类说明：单例框架类

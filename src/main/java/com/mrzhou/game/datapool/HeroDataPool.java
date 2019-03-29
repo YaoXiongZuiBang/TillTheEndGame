@@ -2,7 +2,6 @@ package com.mrzhou.game.datapool;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.mrzhou.game.module.hero.Hero;
 import com.mrzhou.game.module.hero.HeroFactory;
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.util.FileUtil;
@@ -39,7 +38,7 @@ public class HeroDataPool extends DataPool{
 
 
     @Override
-    public <T> Hero getData(String type, Integer level, Class<T> tClass) {
+    public <T> T getData(String type, Integer level, Class<T> tClass) {
         if(heroPool.containsKey(type)) {
             JSONObject heroJson = heroPool.get(type);
             Map<Integer, JSONObject> levels = heroLevelPool.get(type);
@@ -48,9 +47,7 @@ public class HeroDataPool extends DataPool{
                 for (Map.Entry<String, Object> a : levelJson.entrySet()) {
                     heroJson.put(a.getKey(), a.getValue());
                 }
-                Hero a = HeroFactory.parseHero(type, heroJson.toJSONString());
-                System.out.println(JSON.toJSONString(a));
-                return HeroFactory.parseHero(type, heroJson.toJSONString());
+                return (T) HeroFactory.parseHero(type, heroJson.toJSONString());
             }
         }
         return null;
@@ -73,4 +70,8 @@ public class HeroDataPool extends DataPool{
         });
     }
 
+//    public static void main(String[] args) {
+//        DataPool dataPool = DataPoolFactory.createDataPool(ConstantsUtil.HERO_PART);
+//        Hero t = dataPool.getData("warrior", 1, Hero.class);
+//    }
 }

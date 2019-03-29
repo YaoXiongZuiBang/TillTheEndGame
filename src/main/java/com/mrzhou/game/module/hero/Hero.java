@@ -22,6 +22,7 @@ public abstract class Hero{
     //头像
     String img;
 
+    //等级
     Integer level;
 
     // 血量
