@@ -17,11 +17,11 @@ public class Warrior extends Hero{
     public Warrior(){
         String roleName = "狂战士";
         setName(roleName);
-        setBlood(bloodAttribute);
-        setEnergy(energyAttribute);
-        setAttack(attackAttribute);
-        setDefence(defenceAttribute);
-        setSpeed(speedAttribute);
+        setBloodAttr(bloodAttribute);
+        setEnergyAttr(energyAttribute);
+        setAttackAttr(attackAttribute);
+        setDefenceAttr(defenceAttribute);
+        setSpeedAttr(speedAttribute);
     }
 
     //技能，外观，攻击未实现

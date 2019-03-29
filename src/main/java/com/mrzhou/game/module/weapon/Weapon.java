@@ -1,5 +1,9 @@
 package com.mrzhou.game.module.weapon;
 
+import com.mrzhou.game.module.hero.Hero;
+import lombok.Data;
+
+@Data
 public abstract class Weapon {
     //武器名
     private String weaponName;
@@ -13,18 +17,6 @@ public abstract class Weapon {
     private int level;
 
     //增加人物属性
-    public abstract void addAttribute();
-
-    //方法
-    public int getWeaponAttack() {
-        return weaponAttack;
-    }
-    public int getWeaponDefence() {
-        return weaponDefence;
-    }
-    public int getWeaponEnger() {
-        return weaponEnger;
-    }
-
+    public abstract void addAttribute(Hero hero);
 
 }

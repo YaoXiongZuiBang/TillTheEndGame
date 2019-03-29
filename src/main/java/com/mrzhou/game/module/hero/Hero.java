@@ -46,22 +46,21 @@ public abstract class Hero {
     }
 
     //接口类型
-    public void setBlood(BloodAttribute bloodAttribute){
+    public void setBloodAttr(BloodAttribute bloodAttribute){
         blood = bloodAttribute.setBlood();
     }
-    public void setEnergy(EnergyAttribute energyAttribute){
+    public void setEnergyAttr(EnergyAttribute energyAttribute){
         energy = energyAttribute.setEnergy();
     }
-    public void setAttack(AttackAttribute attackAttribute){
+    public void setAttackAttr(AttackAttribute attackAttribute){
         attack = attackAttribute.setAttack();
     }
-    public void setDefence(DefenceAttribute defenceAttribute){
+    public void setDefenceAttr(DefenceAttribute defenceAttribute){
         defence = defenceAttribute.setDefence();
     }
-    public void setSpeed(SpeedAttribute speedAttribute){
+    public void setSpeedAttr(SpeedAttribute speedAttribute){
         speed = speedAttribute.setSpeed();
     }
-
 
 
     public abstract void attack();

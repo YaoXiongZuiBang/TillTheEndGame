@@ -17,11 +17,11 @@ public class Knight extends Hero{
     public Knight(){
         String roleName = "圣骑士";
         setName(roleName);
-        setBlood(bloodAttribute);
-        setEnergy(energyAttribute);
-        setAttack(attackAttribute);
-        setDefence(defenceAttribute);
-        setSpeed(speedAttribute);
+        setBloodAttr(bloodAttribute);
+        setEnergyAttr(energyAttribute);
+        setAttackAttr(attackAttribute);
+        setDefenceAttr(defenceAttribute);
+        setSpeedAttr(speedAttribute);
     }
 
     @Override

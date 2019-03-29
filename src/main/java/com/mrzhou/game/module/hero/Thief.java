@@ -17,11 +17,11 @@ public class Thief extends Hero {
     public Thief(){
         String roleName = "隐秘卫";
         setName(roleName);
-        setBlood(bloodAttribute);
-        setEnergy(energyAttribute);
-        setAttack(attackAttribute);
-        setDefence(defenceAttribute);
-        setSpeed(speedAttribute);
+        setBloodAttr(bloodAttribute);
+        setEnergyAttr(energyAttribute);
+        setAttackAttr(attackAttribute);
+        setDefenceAttr(defenceAttribute);
+        setSpeedAttr(speedAttribute);
     }
     @Override
     public void attack() {

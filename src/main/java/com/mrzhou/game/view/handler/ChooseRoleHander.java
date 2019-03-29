@@ -17,7 +17,7 @@ public class ChooseRoleHander extends MouseAdapter {
         SingletonFrame frame = SingletonFrame.getInstance();
         frame.nextPanel(weaponChoosePanel.getPanel());
         String chooseHeroName = ((JButton)(e.getSource())).getName();
-        System.out.print(chooseHeroName);
+        System.out.println(chooseHeroName);
         HeroFactory heroFactory = new HeroFactory();
         heroFactory.createHero(chooseHeroName);
     }

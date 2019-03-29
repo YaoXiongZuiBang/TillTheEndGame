@@ -1,5 +1,6 @@
 package com.mrzhou.game.view.handler;
 
+import com.mrzhou.game.module.weapon.WeaponFactory;
 import com.mrzhou.game.view.common.SingletonFrame;
 import com.mrzhou.game.view.panel.StageChoosePanel;
 
@@ -16,5 +17,8 @@ public class ChooseWeaponHander extends MouseAdapter {
         frame.nextPanel(stageChoosePanel.getPanel());
         String chooseWeaponName = ((JButton)(e.getSource())).getName();
         System.out.println(chooseWeaponName);
+        WeaponFactory weaponFactory = new WeaponFactory();
+        weaponFactory.createWeapon(chooseWeaponName);
     }
 }
+

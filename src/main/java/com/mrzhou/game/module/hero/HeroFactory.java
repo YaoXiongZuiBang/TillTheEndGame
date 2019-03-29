@@ -17,7 +17,7 @@ public class HeroFactory {
         }else if(type.equals("Thief")){
             hero = new Thief();
         }
-        System.out.print("Create Hero Success!");
+        System.out.println("Create Hero"+type+" Success!");
         return hero;
     }
 }
