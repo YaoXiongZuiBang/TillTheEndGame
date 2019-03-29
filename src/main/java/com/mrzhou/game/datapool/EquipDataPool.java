@@ -12,13 +12,13 @@ public class EquipDataPool extends DataPool{
 
     private EquipDataPool(){}
 
-    private static final class SingletonEqiupDataPool{
+    private static final class SingletonEquipDataPool{
         private static EquipDataPool pool = new EquipDataPool();
 
     }
 
     public static EquipDataPool getInstance(){
-        return SingletonEqiupDataPool.pool;
+        return SingletonEquipDataPool.pool;
     }
 
 
