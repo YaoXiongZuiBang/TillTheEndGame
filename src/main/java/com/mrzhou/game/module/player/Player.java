@@ -1,9 +1,7 @@
 package com.mrzhou.game.module.player;
 
+import com.mrzhou.game.module.equip.Bag;
 import lombok.Data;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 类说明：玩家
@@ -35,7 +33,7 @@ public class Player {
     private Integer weaponLevel;
 
     // 装备包
-    private List<String> equipList;
+    private Bag bag;
 
     // 技能等级
     private int[] skillLevels;
@@ -45,8 +43,8 @@ public class Player {
         this.level = 1;
         this.money = 0;
         this.weaponLevel = 1;
-        this.equipList = new ArrayList<>();
-        this.skillLevels = new int[]{0, 0};
+        this.bag = Bag.getInstance();
+        this.skillLevels = new int[]{1, 1};
     }
 
     public static Player getInstance(){

@@ -26,9 +26,4 @@ public class BloodStoneEquip extends Equip{
         buffList.add(defenceBuff);
     }
 
-
-    @Override
-    public Package getPackage() {
-        return null;
-    }
 }

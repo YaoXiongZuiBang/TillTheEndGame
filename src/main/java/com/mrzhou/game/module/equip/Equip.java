@@ -1,6 +1,5 @@
 package com.mrzhou.game.module.equip;
 
-import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -14,6 +13,10 @@ import java.util.List;
  */
 @Data
 public abstract class Equip {
+    /**
+     * 装备类型
+     */
+    String type;
 
     /**
      * 装备名称
@@ -49,11 +52,6 @@ public abstract class Equip {
      * 加成集合类
      */
     List<Buff> buffList;
-
-    Equip equip;
-
-    public abstract Package getPackage();
-
 
 
     /**

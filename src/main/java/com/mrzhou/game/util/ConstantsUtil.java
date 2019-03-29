@@ -13,6 +13,8 @@ public class ConstantsUtil {
 
     public static final Integer HEIGHT = 700;
 
+    public static final Integer BAG_CAPACITY = 6;
+
     public static final String HERO_PART = "hero";
     public static final String WEAPON_PART = "weapon";
     public static final String EQUIP_PART = "equip";
