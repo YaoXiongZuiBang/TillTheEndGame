@@ -2,13 +2,10 @@ package com.mrzhou.game.view.panel;
 
 import com.mrzhou.game.view.common.BackgroundPanel;
 import com.mrzhou.game.view.common.ButtonFactory;
-import com.mrzhou.game.view.handler.ChooseRoleHander;
-import com.mrzhou.game.view.handler.ChooseWeaponHander;
+import com.mrzhou.game.view.handler.ChooseWeaponHandler;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class WeaponChoosePanel {
 
@@ -34,7 +31,7 @@ public class WeaponChoosePanel {
         Image startImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource(picture));
         weapon = ButtonFactory.makeButton(startImg, x, y);
         weapon.setName(name);
-        weapon.addMouseListener(new ChooseWeaponHander());
+        weapon.addMouseListener(new ChooseWeaponHandler());
         panel.add(weapon);
     }
 

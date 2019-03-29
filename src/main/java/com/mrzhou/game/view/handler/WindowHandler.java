@@ -37,7 +37,7 @@ public class WindowHandler implements WindowListener {
     public void windowClosing(WindowEvent e) {
         Player player = Player.getInstance();
         String content = JSON.toJSONString(player);
-        FileUtil.writeFile(ConstantsUtil.USERINFO_PATH, content);
+        FileUtil.writeFile(ConstantsUtil.USER_INFO_PATH, content);
         System.out.println("close game.");
     }
 

@@ -2,13 +2,10 @@ package com.mrzhou.game.view.panel;
 
 import com.mrzhou.game.view.common.BackgroundPanel;
 import com.mrzhou.game.view.common.ButtonFactory;
-import com.mrzhou.game.view.common.SingletonFrame;
-import com.mrzhou.game.view.handler.ChooseRoleHander;
+import com.mrzhou.game.view.handler.ChooseRoleHandler;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 /**
  * 类说明：初始Panel
@@ -44,7 +41,7 @@ public class RoleChoosePanel {
         Image startImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource(picture));
         role = ButtonFactory.makeButton(startImg, x, y);
         role.setName(name);
-        role.addMouseListener(new ChooseRoleHander());
+        role.addMouseListener(new ChooseRoleHandler());
         panel.add(role);
     }
 

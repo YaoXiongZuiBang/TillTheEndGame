@@ -7,6 +7,7 @@ import com.mrzhou.game.module.hero.HeroFactory;
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.util.FileUtil;
 
+import java.util.Hashtable;
 import java.util.Map;
 
 /**
@@ -18,10 +19,13 @@ import java.util.Map;
 
 public class HeroDataPool extends DataPool{
 
-    private Map<String, Map<Integer, Hero>> heroPool;
+    private Map<String, Map<Integer, JSONObject>> heroLevelPool;
+    private Map<String, JSONObject> heroPool;
 
     private HeroDataPool(){
-
+        heroPool = new Hashtable<>();
+        heroLevelPool = new Hashtable<>();
+        loadFile();
     }
 
     private static final class SingletonHeroDataPool{
@@ -36,21 +40,37 @@ public class HeroDataPool extends DataPool{
 
     @Override
     public <T> Hero getData(String type, Integer level, Class<T> tClass) {
-        Hero t = null;
-        JSONObject object = JSON.parseObject(FileUtil.readFile(ConstantsUtil.HEROINFO_PATH));
-        if (object != null && object.containsKey(type)){
-            JSONObject heroJson = object.getJSONObject(type);
-            JSONObject levels = heroJson.getJSONObject(ConstantsUtil.LEVELS_KEY);
-            heroJson.remove(ConstantsUtil.LEVELS_KEY);
-            if(levels.containsKey(""+level)){
-                heroJson.put(ConstantsUtil.LEVEL_KEY, level);
-                JSONObject levelJson = levels.getJSONObject(""+level);
+        if(heroPool.containsKey(type)) {
+            JSONObject heroJson = heroPool.get(type);
+            Map<Integer, JSONObject> levels = heroLevelPool.get(type);
+            if(levels.containsKey(level)){
+                JSONObject levelJson = levels.get(level);
                 for (Map.Entry<String, Object> a : levelJson.entrySet()) {
                     heroJson.put(a.getKey(), a.getValue());
                 }
+                Hero a = HeroFactory.parseHero(type, heroJson.toJSONString());
+                System.out.println(JSON.toJSONString(a));
                 return HeroFactory.parseHero(type, heroJson.toJSONString());
             }
         }
         return null;
     }
+
+    private void loadFile(){
+        JSONObject object = JSON.parseObject(FileUtil.readFile(ConstantsUtil.HERO_INFO_PATH));
+        object.entrySet().forEach(a ->{
+            Map<Integer, JSONObject> map = new Hashtable<>();
+            JSONObject heroJson = (JSONObject) a.getValue();
+            JSONObject levels = heroJson.getJSONObject(ConstantsUtil.LEVELS_KEY);
+            heroJson.remove(ConstantsUtil.LEVELS_KEY);
+            heroPool.put(a.getKey(), heroJson);
+            levels.entrySet().forEach(b -> {
+                JSONObject levelJson = (JSONObject) b.getValue();
+                levelJson.put(ConstantsUtil.LEVEL_KEY, b.getKey());
+                map.put(Integer.parseInt(b.getKey()), levelJson);
+            });
+            heroLevelPool.put(a.getKey(), map);
+        });
+    }
+
 }

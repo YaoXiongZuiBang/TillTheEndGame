@@ -1,5 +1,7 @@
 package com.mrzhou.game.datapool;
 
+import com.mrzhou.game.util.ConstantsUtil;
+
 /**
  * 类说明：数据池工厂类
  * 创建者：Zeros
@@ -16,16 +18,21 @@ public class DataPoolFactory {
      */
     public static DataPool createDataPool(String type){
         DataPool dataPool = null;
-        if(type.equals("hero")){
-            dataPool = HeroDataPool.getInstance();
-        }else if(type.equals("weapon")){
-            dataPool = WeaponDataPool.getInstance();
-        }else if(type.equals("equipment")){
-            dataPool = EquipDataPool.getInstance();
-        }else if(type.equals("skill")){
-            dataPool = SkillDataPool.getInstance();
+        switch (type) {
+            case ConstantsUtil.HERO_PART:
+                dataPool = HeroDataPool.getInstance();
+                break;
+            case ConstantsUtil.WEAPON_PART:
+                dataPool = WeaponDataPool.getInstance();
+                break;
+            case ConstantsUtil.EQUIP_PART:
+                dataPool = EquipDataPool.getInstance();
+                break;
+            case ConstantsUtil.SKILL_PART:
+                dataPool = SkillDataPool.getInstance();
+                break;
         }
-        System.out.println("Create "+type+" data pool Success!");
+        System.out.println("Create " + type + " data pool Success!");
         return dataPool;
     }
 }
