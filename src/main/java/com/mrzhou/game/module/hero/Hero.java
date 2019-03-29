@@ -1,9 +1,7 @@
 package com.mrzhou.game.module.hero;
 
-import com.mrzhou.game.module.skill.Skill;
 import lombok.Data;
 
-import javax.management.relation.Role;
 import java.util.List;
 
 /**
@@ -14,55 +12,43 @@ import java.util.List;
  */
 
 @Data
-public abstract class Hero {
+public abstract class Hero{
+    //类型
+    String type;
 
     // 角色名
-    private String name;
+    String name;
+
+    //头像
+    String img;
+
+    Integer level;
 
     // 血量
-    private int blood;
+    Integer blood;
 
     // 能量值
-    private int energy;
+    Integer energy;
 
     // 攻击值
-    private int attack;
+    Integer attack;
 
     // 防御值
-    private int defence;
+    Integer defence;
 
     // 速度
-    private int speed;
+    Integer speed;
+
+    // 范围
+    Integer range;
 
     // 技能(未实现)
-    private List<Skill> skillList;
+    List<String> skills;
 
-    //外观（未实现）
-    private String dispaly;
-
-    //设置名字
-    public void setName(String name){
-        this.name = name;
+    public Hero() {
     }
-
-    //接口类型
-    public void setBloodAttr(BloodAttribute bloodAttribute){
-        blood = bloodAttribute.setBlood();
-    }
-    public void setEnergyAttr(EnergyAttribute energyAttribute){
-        energy = energyAttribute.setEnergy();
-    }
-    public void setAttackAttr(AttackAttribute attackAttribute){
-        attack = attackAttribute.setAttack();
-    }
-    public void setDefenceAttr(DefenceAttribute defenceAttribute){
-        defence = defenceAttribute.setDefence();
-    }
-    public void setSpeedAttr(SpeedAttribute speedAttribute){
-        speed = speedAttribute.setSpeed();
-    }
-
 
     public abstract void attack();
 
+    public abstract void levelUp();
 }

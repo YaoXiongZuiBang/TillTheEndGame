@@ -19,5 +19,8 @@ public class ConstantsUtil {
     public static final String EQUIPINFO_PATH = "cache/equip.json";
     public static final String SKILLINFO_PATH = "cache/skill.json";
 
+    public static final String LEVELS_KEY = "levels";
+    public static final String LEVEL_KEY = "level";
+
 
 }

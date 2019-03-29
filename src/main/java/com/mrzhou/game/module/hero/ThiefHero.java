@@ -1,0 +1,25 @@
+package com.mrzhou.game.module.hero;
+
+/**
+ * 类说明：隐秘卫
+ * 创建者：Zeros
+ * 创建时间：2019-03-22 14:00
+ * 包名：com.mrzhou.design.game.module.hero
+ */
+
+public class ThiefHero extends Hero {
+
+    public ThiefHero(){
+        super();
+    }
+
+    @Override
+    public void attack() {
+
+    }
+
+    @Override
+    public void levelUp() {
+
+    }
+}
