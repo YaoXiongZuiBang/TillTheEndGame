@@ -1,7 +1,9 @@
 package com.mrzhou.game.module.player;
 
-import com.mrzhou.game.module.hero.Hero;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 类说明：玩家
@@ -14,12 +16,6 @@ import lombok.Data;
 public class Player {
     private static Player singletonPlayer = null;
 
-    // 用户名
-//    private int playerName;
-
-    // 密码
-//    private String password;
-
     // 经验
     private int experience;
 
@@ -29,13 +25,28 @@ public class Player {
     // 金币
     private int money;
 
-    // 角色
-    private Hero hero;
+    // 角色类型
+    private String heroType;
+
+    // 武器类型
+    private String weaponType;
+
+    // 武器等级
+    private Integer weaponLevel;
+
+    // 装备包
+    private List<String> equipList;
+
+    // 技能等级
+    private int[] skillLevels;
 
     private Player(){
         this.experience = 0;
         this.level = 1;
         this.money = 0;
+        this.weaponLevel = 1;
+        this.equipList = new ArrayList<>();
+        this.skillLevels = new int[]{0, 0};
     }
 
     public static Player getInstance(){
