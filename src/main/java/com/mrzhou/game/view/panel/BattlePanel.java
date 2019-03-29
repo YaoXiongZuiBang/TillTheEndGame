@@ -7,8 +7,6 @@ import com.mrzhou.game.view.builder.MapPanel;
 import com.mrzhou.game.view.common.BackgroundPanel;
 
 import javax.swing.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class BattlePanel {
     MapBuilder firMapBuilder = new FirMapBuilder();

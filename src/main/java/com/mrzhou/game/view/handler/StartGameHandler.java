@@ -4,7 +4,6 @@ import com.mrzhou.game.module.player.Player;
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.util.FileUtil;
 import com.mrzhou.game.view.common.SingletonFrame;
-import com.mrzhou.game.view.panel.ChapterPanel;
 import com.mrzhou.game.view.panel.RoleChoosePanel;
 import com.mrzhou.game.view.panel.StageChoosePanel;
 import com.mrzhou.game.view.panel.WeaponChoosePanel;
