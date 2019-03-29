@@ -13,5 +13,7 @@ public class ConstantsUtil {
 
     public static final Integer HEIGHT = 700;
 
+    public static final String USERINFO_PATH = "cache/user.json";
+
 
 }

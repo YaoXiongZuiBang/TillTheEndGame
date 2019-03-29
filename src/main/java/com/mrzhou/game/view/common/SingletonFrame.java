@@ -3,6 +3,7 @@ package com.mrzhou.game.view.common;
 
 //import com.apple.eawt.Application;
 import com.mrzhou.game.util.ConstantsUtil;
+import com.mrzhou.game.view.handler.WindowHandler;
 import com.mrzhou.game.view.panel.IndexPanel;
 
 import javax.swing.*;
@@ -54,6 +55,7 @@ public class SingletonFrame extends JFrame {
 
         this.setSize(ConstantsUtil.WIDTH,ConstantsUtil.HEIGHT);
         this.setLocationRelativeTo(null);
+        this.addWindowListener(new WindowHandler());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLayout(null);

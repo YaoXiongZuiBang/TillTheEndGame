@@ -12,6 +12,8 @@ import lombok.Data;
 
 @Data
 public class Player {
+    private static Player singletonPlayer = null;
+
     // 用户名
 //    private int playerName;
 
@@ -30,13 +32,17 @@ public class Player {
     // 角色
     private Hero hero;
 
-    public Player(){
-        experience = 0;
-        level = 0;
-        money = 0;
+    private Player(){
+        this.experience = 0;
+        this.level = 1;
+        this.money = 0;
     }
 
-    public void setHero(Hero hero) {
-        this.hero = hero;
+    public static Player getInstance(){
+        if(singletonPlayer == null){
+            singletonPlayer = new Player();
+        }
+        return singletonPlayer;
     }
+
 }
