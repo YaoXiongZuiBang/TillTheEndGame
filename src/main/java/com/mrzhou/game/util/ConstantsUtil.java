@@ -14,6 +14,10 @@ public class ConstantsUtil {
     public static final Integer HEIGHT = 700;
 
     public static final String USERINFO_PATH = "cache/user.json";
+    public static final String HEROINFO_PATH = "cache/hero.json";
+    public static final String WEAPONINFO_PATH = "cache/weapon.json";
+    public static final String EQUIPINFO_PATH = "cache/equip.json";
+    public static final String SKILLINFO_PATH = "cache/skill.json";
 
 
 }
