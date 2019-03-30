@@ -1,4 +1,4 @@
-package com.mrzhou.game.module.player;
+package com.mrzhou.game.module.organism;
 
 import com.mrzhou.game.module.equip.Bag;
 import lombok.Data;
@@ -11,7 +11,7 @@ import lombok.Data;
  */
 
 @Data
-public class Player {
+public class Player{
     private static Player singletonPlayer = null;
 
     // 经验
@@ -54,4 +54,7 @@ public class Player {
         return singletonPlayer;
     }
 
+    public OrganismState getState() {
+        return new OrganismState(300, 100);
+    }
 }

@@ -1,6 +1,6 @@
 package com.mrzhou.game.view.handler;
 
-import com.mrzhou.game.module.player.Player;
+import com.mrzhou.game.module.organism.Player;
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.util.FileUtil;
 import com.mrzhou.game.view.common.SingletonFrame;

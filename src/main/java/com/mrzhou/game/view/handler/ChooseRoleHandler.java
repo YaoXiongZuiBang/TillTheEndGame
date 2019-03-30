@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.mrzhou.game.datapool.DataPool;
 import com.mrzhou.game.datapool.DataPoolFactory;
 import com.mrzhou.game.module.hero.Hero;
-import com.mrzhou.game.module.player.Player;
+import com.mrzhou.game.module.organism.Player;
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.view.common.SingletonFrame;
 import com.mrzhou.game.view.panel.WeaponChoosePanel;
