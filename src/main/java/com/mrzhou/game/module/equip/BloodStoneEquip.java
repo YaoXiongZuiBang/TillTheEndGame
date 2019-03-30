@@ -13,7 +13,7 @@ public class BloodStoneEquip extends Equip{
     public BloodStoneEquip() {
         init();
         this.name = "血灵石";
-        this.img = "";
+        this.img = "/img/equipment/equip_9.png";
     }
 
     public void initBuffs() {
