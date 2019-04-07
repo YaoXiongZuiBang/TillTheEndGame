@@ -1,5 +1,7 @@
 package com.mrzhou.game.view.panel;
 
+import com.mrzhou.game.module.organism.Player;
+import com.mrzhou.game.module.organism.PlayerInfo;
 import com.mrzhou.game.view.common.BackgroundPanel;
 import com.mrzhou.game.view.common.ButtonFactory;
 import com.mrzhou.game.view.handler.EquipHandler;
@@ -20,7 +22,8 @@ public class StageChoosePanel {
         panel.setBounds(0,0,backIcon.getIconWidth(),backIcon.getIconHeight());
         panel.setLayout(null);
         //人物按钮
-        Image roleImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/hero-1.png"));
+        PlayerInfo player = Player.getInstance().obtainPlayerInfo();
+        Image roleImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/" + player.getHero().getImg()));
         ImageIcon roleIcon = new ImageIcon(roleImg);
         JButton heroButton = new JButton();
         heroButton.setIcon(roleIcon);

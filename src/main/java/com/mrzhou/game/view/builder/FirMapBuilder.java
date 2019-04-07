@@ -1,5 +1,8 @@
 package com.mrzhou.game.view.builder;
 
+import com.alibaba.fastjson.JSON;
+import com.mrzhou.game.module.organism.Player;
+import com.mrzhou.game.module.organism.PlayerInfo;
 import com.mrzhou.game.view.common.BackgroundPanel;
 import lombok.Data;
 
@@ -66,7 +69,8 @@ public class FirMapBuilder extends MapBuilder {
     public void buildPlayer() {
         //产生角色
         JButton buttonPlayer = new JButton();
-        Image playerImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/npc/hero-1.png"));
+        PlayerInfo player = Player.getInstance().obtainPlayerInfo();
+        Image playerImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/npc/"+ player.getHero().getImg()));
         ImageIcon playerIcon = new ImageIcon(playerImg);
         buttonPlayer.setIcon(playerIcon);
         buttonPlayer.setBounds(0, 0, UNIT, UNIT);

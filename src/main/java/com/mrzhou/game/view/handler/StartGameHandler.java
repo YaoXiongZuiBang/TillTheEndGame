@@ -1,6 +1,7 @@
 package com.mrzhou.game.view.handler;
 
-import com.mrzhou.game.module.player.Player;
+import com.mrzhou.game.module.organism.Player;
+import com.mrzhou.game.module.organism.PlayerInfo;
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.util.FileUtil;
 import com.mrzhou.game.view.common.SingletonFrame;
@@ -26,7 +27,8 @@ public class StartGameHandler extends MouseAdapter {
     @Override
     public void mouseClicked(MouseEvent e) {
         super.mouseClicked(e);
-        Player player = FileUtil.readFile(ConstantsUtil.USER_INFO_PATH, Player.class);
+        PlayerInfo player = FileUtil.readFile(ConstantsUtil.USER_INFO_PATH, PlayerInfo.class);
+        Player play = Player.getInstance();
         SingletonFrame frame = SingletonFrame.getInstance();
 
         //未初始化
@@ -39,6 +41,7 @@ public class StartGameHandler extends MouseAdapter {
             WeaponChoosePanel weaponPanel = new WeaponChoosePanel();
             frame.nextPanel(weaponPanel.getPanel());
         }else{
+            play.init(player);
             //跳转选择关卡页面
             StageChoosePanel chapterPanel = new StageChoosePanel();
             frame.nextPanel(chapterPanel.getPanel());

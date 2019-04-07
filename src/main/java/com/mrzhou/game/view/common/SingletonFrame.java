@@ -5,6 +5,8 @@ package com.mrzhou.game.view.common;
 
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.view.handler.WindowHandler;
+import com.mrzhou.game.view.panel.BattlePanel;
+import com.mrzhou.game.view.panel.FightPanel;
 import com.mrzhou.game.view.panel.IndexPanel;
 
 import javax.swing.*;
@@ -47,6 +49,10 @@ public class SingletonFrame extends JFrame {
         IndexPanel indexPanel = new IndexPanel();
         currentPanel = indexPanel.getPanel();
         this.add(currentPanel);
+//        //test
+//        FightPanel fightPanel = new FightPanel();
+//        currentPanel = fightPanel.getPanel();
+//        this.add(currentPanel);
 
 //        //应用Icon
 //        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/icon/icon.png"));
