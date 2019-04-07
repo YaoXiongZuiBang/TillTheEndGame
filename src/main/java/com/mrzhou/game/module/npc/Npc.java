@@ -15,6 +15,4 @@ public class Npc implements Cloneable{
     protected Npc clone() throws CloneNotSupportedException{
         return (Npc) super.clone();
     }
-    
-
 }
