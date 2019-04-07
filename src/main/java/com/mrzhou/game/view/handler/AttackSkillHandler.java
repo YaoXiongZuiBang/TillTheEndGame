@@ -1,5 +1,7 @@
 package com.mrzhou.game.view.handler;
 
+import com.mrzhou.game.view.listener.RemoveSkillListener;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -16,13 +18,17 @@ public class AttackSkillHandler extends MouseAdapter {
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("OK,第一个技能");
+        System.out.println("OK,释放技能");
         super.mouseClicked(e);
         Image displayImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource(skillImg));
         ImageIcon displayIcon = new ImageIcon(displayImg);
         JLabel label = new JLabel();
         label.setIcon(displayIcon);
-        label.setBounds(300,200,300,200);
+        label.setBounds(500,200,400,200);
         panel.add(label);
+        panel.repaint();
+        Timer timer = new Timer(3000,new RemoveSkillListener(panel,label));
+        timer.setRepeats(false);
+        timer.start();
     }
 }

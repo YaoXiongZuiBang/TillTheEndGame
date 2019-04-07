@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.mrzhou.game.view.common.BackgroundPanel;
 import com.mrzhou.game.view.common.ButtonFactory;
 import com.mrzhou.game.view.handler.AttackSkillHandler;
+import com.mrzhou.game.view.listener.RemoveSkillListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -58,34 +59,18 @@ public class FightPanel {
         //技能
         Image comAttackImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/skill/comAttack.png"));
         JButton comAttack = ButtonFactory.makeButton(comAttackImg, 420, 520);
-//        comAttack.addMouseListener(new AttackSkillHandler(panel,"/img/skill/skillDisplay1_1.png"));
-        MouseAdapter m1 = new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                System.out.println("start attack");
-//                Image displayImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/skill/skillDisplay1_1.png"));
-//                ImageIcon displayIcon = new ImageIcon(displayImg);
-                JLabel label = new JLabel("234567");
-//                label.setIcon(displayIcon);
-//                label.setBounds(300,200,300,200);
-                panel.add(label);
-                panel.repaint();
-
-            }
-        };
-        comAttack.addMouseListener(m1);
+        comAttack.addMouseListener(new AttackSkillHandler(panel,"/img/skill/attack_display.png"));
         panel.add(comAttack);
-
         Image skill1Img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/skill/skill1_1.png"));
         JButton skill1 = ButtonFactory.makeButton(skill1Img, 570, 520);
-//        skill1.addMouseListener(new StartGameHandler());
+        skill1.addMouseListener(new AttackSkillHandler(panel,"/img/skill/skillDisplay1_1.png"));
         panel.add(skill1);
         Image skill2Img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/skill/skill1_2.png"));
         JButton skill2 = ButtonFactory.makeButton(skill2Img, 720, 520);
-//        skill1.addMouseListener(new StartGameHandler());
+        skill2.addMouseListener(new AttackSkillHandler(panel,"/img/skill/skillDisplay1_2.png"));
         panel.add(skill2);
     }
+
 
     public BackgroundPanel getPanel(){
         return panel;

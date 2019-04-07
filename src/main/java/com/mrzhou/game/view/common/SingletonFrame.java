@@ -46,13 +46,13 @@ public class SingletonFrame extends JFrame {
 
 
     private void initIndexPanel() {
-        IndexPanel indexPanel = new IndexPanel();
-        currentPanel = indexPanel.getPanel();
-        this.add(currentPanel);
-//        //test
-//        FightPanel fightPanel = new FightPanel();
-//        currentPanel = fightPanel.getPanel();
+//        IndexPanel indexPanel = new IndexPanel();
+//        currentPanel = indexPanel.getPanel();
 //        this.add(currentPanel);
+//        //test
+        FightPanel fightPanel = new FightPanel();
+        currentPanel = fightPanel.getPanel();
+        this.add(currentPanel);
 
 //        //应用Icon
 //        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/icon/icon.png"));
