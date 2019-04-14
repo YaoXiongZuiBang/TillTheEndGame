@@ -23,19 +23,45 @@ public class FightPanel {
         panel.setBounds(0,0,backIcon.getIconWidth(),backIcon.getIconHeight());
         panel.setLayout(null);
         //血条与蓝条
-        Image bloodImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/blood.png"));
-        ImageIcon bloodIcon = new ImageIcon(bloodImg);
-        JLabel bloodLabel = new JLabel();
-        bloodLabel.setIcon(bloodIcon);
-        bloodLabel.setBounds(10,0,770,140);
-        panel.add(bloodLabel);
+//        Image bloodImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/blood.png"));
+//        ImageIcon bloodIcon = new ImageIcon(bloodImg);
+//        JLabel bloodLabel = new JLabel();
+//        bloodLabel.setIcon(bloodIcon);
+//        bloodLabel.setBounds(10,0,770,140);
+//        panel.add(bloodLabel);
+//
+//        Image energyImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/energy.png"));
+//        ImageIcon energyIcon = new ImageIcon(energyImg);
+//        JLabel energyLabel = new JLabel();
+//        energyLabel.setIcon(energyIcon);
+//        energyLabel.setBounds(10,65,770,140);
+//        panel.add(energyLabel);
+        Font font1 = new Font("宋体",Font.BOLD,42);
+        JLabel bloodText = new JLabel("体力值:");
+        bloodText.setBounds(50,10,200,100);
+        bloodText.setFont(font1);
+        bloodText.setForeground(Color.RED);
+        panel.add(bloodText);
 
-        Image energyImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/energy.png"));
-        ImageIcon energyIcon = new ImageIcon(energyImg);
-        JLabel energyLabel = new JLabel();
-        energyLabel.setIcon(energyIcon);
-        energyLabel.setBounds(10,65,770,140);
-        panel.add(energyLabel);
+        JLabel energyText = new JLabel("能量值:");
+        energyText.setBounds(50,80,200,100);
+        energyText.setFont(font1);
+        energyText.setForeground(Color.BLUE);
+        panel.add(energyText);
+
+        JLabel bloodValue = new JLabel("100");
+        bloodValue.setBounds(200,10,200,100);
+        bloodValue.setFont(font1);
+        bloodValue.setForeground(Color.RED);
+        panel.add(bloodValue);
+
+        JLabel energyValue = new JLabel("100");
+        energyValue.setBounds(200,80,200,100);
+        energyValue.setFont(font1);
+        energyValue.setForeground(Color.BLUE);
+        panel.add(energyValue);
+
+
         //玩家角色
         Image roleImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/hero-1.png"));
         ImageIcon roleIcon = new ImageIcon(roleImg);
@@ -47,11 +73,11 @@ public class FightPanel {
         heroButton.setFocusable(true);
         panel.add(heroButton);
         //NPC角色
-        Image npcImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/npc/npc_1.png"));
+        Image npcImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/npc/npc_12.png"));
         ImageIcon npcIcon = new ImageIcon(npcImg);
         JButton npcButton = new JButton();
         npcButton.setIcon(npcIcon);
-        npcButton.setBounds(800,300,roleIcon.getIconWidth(),npcIcon.getIconHeight());
+        npcButton.setBounds(800,180,roleIcon.getIconWidth(),npcIcon.getIconHeight());
         npcButton.setContentAreaFilled(false);
         npcButton.setBorderPainted(false);
         npcButton.setFocusable(true);

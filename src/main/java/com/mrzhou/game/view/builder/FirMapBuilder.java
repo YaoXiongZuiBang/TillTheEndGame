@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.mrzhou.game.module.organism.Player;
 import com.mrzhou.game.module.organism.PlayerInfo;
 import com.mrzhou.game.view.common.BackgroundPanel;
+import com.mrzhou.game.view.common.SingletonFrame;
+import com.mrzhou.game.view.panel.BattlePanel;
 import lombok.Data;
 
 import javax.swing.*;
@@ -109,6 +111,11 @@ public class FirMapBuilder extends MapBuilder {
                     int npcY = NPCArr[i][1]*UNIT;
                     if(npcX == left && npcY == button.getY()){
                         System.out.println("左边有敌人，开始战斗");
+                        //跳转至战斗界面
+                        BattlePanel battlePanel = new BattlePanel();
+                        SingletonFrame frame = SingletonFrame.getInstance();
+                        frame.nextPanel(battlePanel.getBgPanel());
+                        //
                         NPCArr[i][0] = 255;
                         NPCArr[i][1] = 255;
                         searchNPC(floorPanel,(i+""));

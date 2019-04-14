@@ -3,12 +3,12 @@ package com.mrzhou.game.view.common;
 
 //import com.apple.eawt.Application;
 
+import com.mrzhou.game.module.weapon.Weapon;
 import com.mrzhou.game.util.ConstantsUtil;
 import com.mrzhou.game.view.handler.WindowHandler;
-import com.mrzhou.game.view.panel.BattlePanel;
-import com.mrzhou.game.view.panel.FightPanel;
-import com.mrzhou.game.view.panel.IndexPanel;
+import com.mrzhou.game.view.panel.*;
 
+import javax.management.relation.Role;
 import javax.swing.*;
 
 /**
@@ -46,13 +46,44 @@ public class SingletonFrame extends JFrame {
 
 
     private void initIndexPanel() {
-//        IndexPanel indexPanel = new IndexPanel();
-//        currentPanel = indexPanel.getPanel();
-//        this.add(currentPanel);
-//        //test
-        FightPanel fightPanel = new FightPanel();
-        currentPanel = fightPanel.getPanel();
+        IndexPanel indexPanel = new IndexPanel();
+        currentPanel = indexPanel.getPanel();
         this.add(currentPanel);
+
+//        //test1
+//        FightPanel fightPanel = new FightPanel();
+//        currentPanel = fightPanel.getPanel();
+//        this.add(currentPanel);
+
+          //test2
+//        EquipPanel equipPanel = new EquipPanel();
+//        currentPanel = equipPanel.getPanel();
+//        this.add(currentPanel);
+
+          //test3
+//        RolePanel rolePanel = new RolePanel();
+//        currentPanel = rolePanel.getPanel();
+//        this.add(currentPanel);
+
+         //test4
+//        WeaponPanel weaponPanel = new WeaponPanel();
+//        currentPanel = weaponPanel.getPanel();
+//        this.add(currentPanel);
+
+        //test5
+//        SkillPanel skillPanel = new SkillPanel();
+//        currentPanel = skillPanel.getPanel();
+//        this.add(currentPanel);
+
+        //test6
+//        BattlePanel battlePanel = new BattlePanel();
+//        currentPanel = battlePanel.getBgPanel();
+//        this.add(currentPanel);
+
+        //test7
+//        StageChoosePanel stagePanel = new StageChoosePanel();
+//        currentPanel = stagePanel.getPanel();
+//        this.add(currentPanel);
 
 //        //应用Icon
 //        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/icon/icon.png"));
