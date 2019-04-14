@@ -1,6 +1,7 @@
 package com.mrzhou.game.module.equip;
 
 
+import com.mrzhou.game.module.player.PlayerState;
 import com.mrzhou.game.util.ConstantsUtil;
 
 /**
@@ -16,6 +17,7 @@ public class Bag{
     private Equip[] equipList;
 
     private int capacity;
+
 
     private Bag() {
         this.capacity = ConstantsUtil.BAG_CAPACITY;
@@ -33,5 +35,18 @@ public class Bag{
         if(index>0 && index<capacity){
             equipList[index] = equip;
         }
+    }
+
+    public PlayerState getState(){
+        int blood = 0, energy = 0, attack = 0, defence = 0;
+        for(Equip equip : equipList){
+            if(equip != null){
+                blood += equip.getBloodPlus();
+                energy += equip.getEnergyPlus();
+                attack += equip.getAttackPlus();
+                defence += equip.getDefencePlus();
+            }
+        }
+        return new PlayerState(blood, energy, attack, defence);
     }
 }

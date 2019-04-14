@@ -34,12 +34,19 @@ public class OrganismState extends Observable {
     public OrganismState() {
     }
 
+
     public OrganismState(int blood, int attack) {
         this.blood = blood;
         this.attack = attack;
+
     }
 
-
+    public OrganismState(int blood, int energy, int attack, int defence) {
+        this.blood = blood;
+        this.energy = energy;
+        this.attack = attack;
+        this.defence = defence;
+    }
 
     public void attacked(int attack){
         this.blood -= attack;

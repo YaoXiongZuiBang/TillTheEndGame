@@ -1,6 +1,11 @@
 package com.mrzhou.game.module.organism;
 
+import com.alibaba.fastjson.JSON;
+import com.mrzhou.game.module.attribute.*;
 import com.mrzhou.game.module.equip.Bag;
+import com.mrzhou.game.module.equip.Equip;
+import com.mrzhou.game.module.hero.Hero;
+import com.mrzhou.game.module.player.PlayerState;
 import lombok.Data;
 
 /**
@@ -55,7 +60,21 @@ public class Player{
     }
 
     public OrganismState obtainState() {
-        return new OrganismState(300, 100);
+        //装饰者模式
+        PlayerInfo playerInfo = obtainPlayerInfo();
+        OrganismState state = new OrganismState();
+        Attribute attribute = new BaseAttribute();
+        HeroAttribute heroAttribute = new HeroAttribute(attribute, playerInfo.getHero());
+        System.out.println(JSON.toJSONString(heroAttribute));
+        WeaponAttribute weaponAttribute = new WeaponAttribute(heroAttribute, playerInfo.getWeapon());
+        System.out.println(JSON.toJSONString(weaponAttribute));
+        EquipAttribute equipAttribute = new EquipAttribute(weaponAttribute, playerInfo.getBag());
+        state.setBlood(equipAttribute.obtainBlood());
+        state.setEnergy(equipAttribute.obtainEnergy());
+        state.setAttack(equipAttribute.obtainAttack());
+        state.setDefence(equipAttribute.obtainDefence());
+        System.out.println(JSON.toJSONString(state));
+        return state;
     }
 
     public PlayerInfo obtainPlayerInfo(){

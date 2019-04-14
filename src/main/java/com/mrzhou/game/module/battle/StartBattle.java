@@ -17,7 +17,7 @@ public class StartBattle {
         BattleMediator mediator = new BattleMediator();
 
         OrganismState state = Player.getInstance().obtainState();
-        OrganismState s2 = new Npc(202, 30, 1).getState();
+        OrganismState s2 = new Npc(202, 30, 1, "","").getState();
 
         PlayerPartner playerPartner = new PlayerPartner(mediator, state);
         NPCPartner npcPartner = new NPCPartner(mediator, s2);

@@ -3,7 +3,9 @@ package com.mrzhou.game.module.battle;
 
 import com.alibaba.fastjson.JSON;
 import com.mrzhou.game.module.organism.OrganismState;
+import com.mrzhou.game.module.organism.Player;
 
+import javax.swing.*;
 import java.util.Observable;
 
 /**
@@ -15,6 +17,8 @@ import java.util.Observable;
 
 public class PlayerPartner extends AbstractPartner{
 
+    private JPanel panel;
+
     public PlayerPartner(AbstractMediator mediator, OrganismState state) {
         super(mediator, state);
     }
@@ -24,16 +28,12 @@ public class PlayerPartner extends AbstractPartner{
         this.getMediator().roundAttack(this);
     }
 
-    @Override
-    public void setOrganismState() {
-
-    }
-
     public void attackTarget(AbstractPartner npcBatch) {
-        Integer attack = 100;
+        OrganismState own = this.getPartnerState();
+        System.out.println(own);
         OrganismState state = npcBatch.getPartnerState();
         System.out.println(state);
-        state.attacked(attack);
+        state.attacked(own.getAttack() - state.getDefence());
     }
 
     @Override
@@ -41,5 +41,10 @@ public class PlayerPartner extends AbstractPartner{
         System.out.println("player被攻击");
         System.out.println(JSON.toJSONString(o));
         System.out.println(JSON.toJSONString(arg));
+        panel.repaint();
+    }
+
+    public void setPanel(JPanel panel) {
+        this.panel = panel;
     }
 }

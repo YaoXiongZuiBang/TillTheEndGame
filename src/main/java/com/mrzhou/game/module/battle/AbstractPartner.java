@@ -26,7 +26,5 @@ public abstract class AbstractPartner implements Observer {
 
     public abstract void attack();
 
-    public abstract void setOrganismState();
-
 
 }

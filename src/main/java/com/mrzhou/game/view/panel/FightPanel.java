@@ -1,6 +1,11 @@
 package com.mrzhou.game.view.panel;
 
+import com.alibaba.fastjson.JSON;
+import com.mrzhou.game.module.battle.BattleMediator;
+import com.mrzhou.game.module.battle.NPCPartner;
+import com.mrzhou.game.module.battle.PlayerPartner;
 import com.mrzhou.game.module.organism.Npc;
+import com.mrzhou.game.module.organism.OrganismState;
 import com.mrzhou.game.module.organism.Player;
 import com.mrzhou.game.module.organism.PlayerInfo;
 import com.mrzhou.game.view.builder.MapPanel;
@@ -8,23 +13,48 @@ import com.mrzhou.game.view.common.BackgroundPanel;
 import com.mrzhou.game.view.common.ButtonFactory;
 import com.mrzhou.game.view.common.SingletonFrame;
 import com.mrzhou.game.view.handler.AttackSkillHandler;
+import org.omg.CORBA.BAD_CONTEXT;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Observable;
+import java.util.Observer;
 
-public class FightPanel {
+public class FightPanel implements Observer {
 
     private MapPanel mapPanel;
     private BackgroundPanel panel;
     private PlayerInfo playerInfo;
     private Npc npc;
+    BattleMediator mediator;
+
+    OrganismState playerState;
+    OrganismState npcState;
+
+    PlayerPartner playerPartner;
+    NPCPartner npcPartner;
 
     public FightPanel(MapPanel mapPanel, Npc npc) {
         this.mapPanel = mapPanel;
         this.npc = npc;
         Player player = Player.getInstance();
         this.playerInfo = player.obtainPlayerInfo();
+
+        initMediator();
         initPanel();
+
+        playerPartner.setPanel(panel);
+    }
+
+    private void initMediator() {
+        mediator = new BattleMediator();
+        playerState = Player.getInstance().obtainState();
+        npcState = this.npc.getState();
+
+        playerPartner = new PlayerPartner(mediator, playerState);
+        npcPartner = new NPCPartner(mediator, npcState);
+        mediator.setNpcPartner(npcPartner);
+        mediator.setPlayer(playerPartner);
     }
 
     private void initPanel(){
@@ -48,13 +78,13 @@ public class FightPanel {
         energyText.setForeground(Color.BLUE);
         panel.add(energyText);
 
-        JLabel bloodValue = new JLabel("100");
+        JLabel bloodValue = new JLabel(playerState.getBlood()+"");
         bloodValue.setBounds(200,10,200,100);
         bloodValue.setFont(font1);
         bloodValue.setForeground(Color.RED);
         panel.add(bloodValue);
 
-        JLabel energyValue = new JLabel("100");
+        JLabel energyValue = new JLabel(playerState.getEnergy()+"");
         energyValue.setBounds(200,80,200,100);
         energyValue.setFont(font1);
         energyValue.setForeground(Color.BLUE);
@@ -84,15 +114,15 @@ public class FightPanel {
         //技能
         Image comAttackImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/skill/comAttack.png"));
         JButton comAttack = ButtonFactory.makeButton(comAttackImg, 420, 520);
-        comAttack.addMouseListener(new AttackSkillHandler(panel,"/img/skill/attack_display.png"));
+        comAttack.addMouseListener(new AttackSkillHandler(playerPartner, npcPartner,panel,"/img/skill/attack_display.png"));
         panel.add(comAttack);
         Image skill1Img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/skill/skill1_1.png"));
         JButton skill1 = ButtonFactory.makeButton(skill1Img, 570, 520);
-        skill1.addMouseListener(new AttackSkillHandler(panel,"/img/skill/skillDisplay1_1.png"));
+        skill1.addMouseListener(new AttackSkillHandler(playerPartner, npcPartner, panel,"/img/skill/skillDisplay1_1.png"));
         panel.add(skill1);
         Image skill2Img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/skill/skill1_2.png"));
         JButton skill2 = ButtonFactory.makeButton(skill2Img, 720, 520);
-        skill2.addMouseListener(new AttackSkillHandler(panel,"/img/skill/skillDisplay1_2.png"));
+        skill2.addMouseListener(new AttackSkillHandler(playerPartner, npcPartner, panel,"/img/skill/skillDisplay1_2.png"));
         panel.add(skill2);
     }
 
@@ -104,5 +134,11 @@ public class FightPanel {
     private void back(){
         SingletonFrame frame = SingletonFrame.getInstance();
         frame.nextPanel(mapPanel.getBg());
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        System.out.println("UI:"+JSON.toJSONString(o));
+        back();
     }
 }

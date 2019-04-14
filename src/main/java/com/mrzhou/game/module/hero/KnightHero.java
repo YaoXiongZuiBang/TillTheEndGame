@@ -14,12 +14,15 @@ public class KnightHero extends Hero{
     }
 
     @Override
-    public void attack() {
-
+    public Integer attack() {
+        System.out.println("圣骑士造成了 " + this.getAttack() + " 点伤害");
+        return this.getAttack();
     }
 
     @Override
     public void levelUp() {
-
+        System.out.println("圣骑士升级");
+        Integer level = this.getLevel() + 1;
+        this.setLevel(level);
     }
 }

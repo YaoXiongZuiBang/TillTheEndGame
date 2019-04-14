@@ -1,5 +1,6 @@
 package com.mrzhou.game.view.panel;
 
+import com.mrzhou.game.module.hero.Hero;
 import com.mrzhou.game.module.organism.Player;
 import com.mrzhou.game.module.organism.PlayerInfo;
 import com.mrzhou.game.view.common.BackgroundPanel;
@@ -19,7 +20,10 @@ public class RolePanel {
         panel.setBounds(0, 0, backIcon.getIconWidth(), backIcon.getIconHeight());
         panel.setLayout(null);
 //        人物图标
-        Image roleImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/hero-1.png" ));
+        PlayerInfo player = Player.getInstance().obtainPlayerInfo();
+        Hero hero = player.getHero();
+        Image roleImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/" + hero.getImg()));
+//        Image roleImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/hero-1.png" ));
         ImageIcon roleIcon = new ImageIcon(roleImg);
         JButton heroButton = new JButton();
         heroButton.setIcon(roleIcon);
@@ -41,7 +45,7 @@ public class RolePanel {
         for(int i=0;i<7;i++){
             setAttributeSlide(140,95*i,attributeText[i]);
         }
-        String[] attributeValue = {"100","20","80","30","3","502","100"};
+        String[] attributeValue = {hero.getBlood()+"",""+hero.getAttack(),""+hero.getEnergy(),hero.getSpeed()+"","3","502",hero.getDefence()+""};
         for(int i=0;i<7;i++){
             setAttributeSlide(240,95*i,attributeValue[i]);
         }
@@ -50,8 +54,7 @@ public class RolePanel {
         setAttributeImage(200,430,"/img/hero/icon_1.png" );
         setAttributeImage(200,485,"/img/hero/icon_2.png");
         setAttributeImage(200,550,"/img/equipment/money.png");
-
-        String[] attributeBottomValue = {"狂战士","Level-1","10000"};
+        String[] attributeBottomValue = {hero.getName(),"Level-"+hero.getLevel(),"10000"};
         for(int i=0;i<3;i++){
             setAttributeBottom(300,350+60*(i+1),attributeBottomValue[i]);
         }

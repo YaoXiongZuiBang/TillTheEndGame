@@ -24,6 +24,19 @@ public class PlayerState {
     // 防御值
     private int defence;
 
-    // 速度
+    // 速度(暂不考虑）
     private int speed;
+
+    public PlayerState() {
+    }
+
+    public PlayerState(int blood, int energy, int attack, int defence) {
+        this.blood = blood;
+        this.energy = energy;
+        this.attack = attack;
+        this.defence = defence;
+    }
 }
+
+
+

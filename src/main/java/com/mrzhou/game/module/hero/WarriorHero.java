@@ -14,14 +14,17 @@ public class WarriorHero extends Hero{
         super();
     }
 
-    //技能，外观，攻击未实现
-    @Override
-    public void attack() {
 
+    @Override
+    public Integer attack() {
+        System.out.println("狂战士造成了 " + this.getAttack() + " 点伤害");
+        return this.getAttack();
     }
 
     @Override
     public void levelUp() {
-
+        System.out.println("狂战士升级");
+        Integer level = this.getLevel() + 1;
+        this.setLevel(level);
     }
 }

@@ -24,15 +24,12 @@ public class NPCPartner extends AbstractPartner{
 
     }
 
-    @Override
-    public void setOrganismState() {
-
-    }
 
     public void attackTarget(PlayerPartner player) {
-        Integer attack = 50;
+        OrganismState own = this.getPartnerState();
         OrganismState state = player.getPartnerState();
-        state.attacked(attack);
+        int attack = own.getAttack() - state.getDefence();
+        state.attacked(attack > 0 ? attack : 0);
     }
 
 

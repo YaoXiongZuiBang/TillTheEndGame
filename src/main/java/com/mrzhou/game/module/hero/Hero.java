@@ -49,7 +49,7 @@ public abstract class Hero{
     public Hero() {
     }
 
-    public abstract void attack();
+    public abstract Integer attack();
 
     public abstract void levelUp();
 }
