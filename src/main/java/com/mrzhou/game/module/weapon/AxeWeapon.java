@@ -1,6 +1,5 @@
 package com.mrzhou.game.module.weapon;
 
-import com.mrzhou.game.module.hero.Hero;
 
 /**
  * 斧头类
@@ -12,7 +11,9 @@ public class AxeWeapon extends Weapon{
     }
 
     @Override
-    public void addAttribute(Hero hero) {
+    public Weapon attack() {
+        System.out.println("斧头造成了" + this.getAttackPlus() + " 点伤害，增加了 "+ this.getDefencePlus() + " 点防御");
+        return this;
 //        hero.setAttack(hero.getAttack()+getWeaponAttack());
 //        hero.setDefence(hero.getDefence()+getWeaponDefence());
 //        hero.setEnergy(hero.getEnergy()+getWeaponEnger());

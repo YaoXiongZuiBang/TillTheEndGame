@@ -22,6 +22,6 @@ public abstract class Weapon {
 
 
     //增加人物属性
-    public abstract void addAttribute(Hero hero);
+    public abstract Weapon attack();
 
 }

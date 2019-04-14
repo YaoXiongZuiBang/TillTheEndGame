@@ -1,6 +1,5 @@
 package com.mrzhou.game.module.organism;
 
-import com.alibaba.fastjson.JSON;
 import com.mrzhou.game.module.equip.Bag;
 import lombok.Data;
 

@@ -43,7 +43,7 @@ public abstract class Hero{
     // 范围
     Integer range;
 
-    // 技能(未实现)
+    // 技能
     List<String> skills;
 
     public Hero() {

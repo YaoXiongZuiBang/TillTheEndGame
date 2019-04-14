@@ -27,7 +27,7 @@ public class AttackSkillHandler extends MouseAdapter {
         label.setBounds(500,200,400,200);
         panel.add(label);
         panel.repaint();
-        Timer timer = new Timer(3000,new RemoveSkillListener(panel,label));
+        Timer timer = new Timer(1000,new RemoveSkillListener(panel,label));
         timer.setRepeats(false);
         timer.start();
     }

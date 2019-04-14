@@ -1,7 +1,5 @@
 package com.mrzhou.game.module.weapon;
 
-import com.mrzhou.game.module.hero.Hero;
-
 /**
  * 武器-匕首
  */
@@ -11,7 +9,8 @@ public class DaggerWeapon extends Weapon{
     }
 
     @Override
-    public void addAttribute(Hero hero) {
-        // TODO
+    public Weapon attack() {
+        System.out.println("匕首造成了" + this.getAttackPlus() + " 点伤害，增加了 "+ this.getDefencePlus() + " 点防御");
+        return this;
     }
 }

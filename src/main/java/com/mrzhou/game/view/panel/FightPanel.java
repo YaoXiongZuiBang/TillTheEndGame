@@ -1,21 +1,33 @@
 package com.mrzhou.game.view.panel;
 
-import com.alibaba.fastjson.JSON;
+import com.mrzhou.game.module.organism.Npc;
+import com.mrzhou.game.module.organism.Player;
+import com.mrzhou.game.module.organism.PlayerInfo;
+import com.mrzhou.game.view.builder.MapPanel;
 import com.mrzhou.game.view.common.BackgroundPanel;
 import com.mrzhou.game.view.common.ButtonFactory;
+import com.mrzhou.game.view.common.SingletonFrame;
 import com.mrzhou.game.view.handler.AttackSkillHandler;
-import com.mrzhou.game.view.listener.RemoveSkillListener;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class FightPanel {
 
+    private MapPanel mapPanel;
     private BackgroundPanel panel;
+    private PlayerInfo playerInfo;
+    private Npc npc;
 
-    public FightPanel(){
+    public FightPanel(MapPanel mapPanel, Npc npc) {
+        this.mapPanel = mapPanel;
+        this.npc = npc;
+        Player player = Player.getInstance();
+        this.playerInfo = player.obtainPlayerInfo();
+        initPanel();
+    }
+
+    private void initPanel(){
         //背景
         Image backImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/background/fight_bg.jpg"));
         ImageIcon backIcon = new ImageIcon(backImg);
@@ -23,19 +35,6 @@ public class FightPanel {
         panel.setBounds(0,0,backIcon.getIconWidth(),backIcon.getIconHeight());
         panel.setLayout(null);
         //血条与蓝条
-//        Image bloodImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/blood.png"));
-//        ImageIcon bloodIcon = new ImageIcon(bloodImg);
-//        JLabel bloodLabel = new JLabel();
-//        bloodLabel.setIcon(bloodIcon);
-//        bloodLabel.setBounds(10,0,770,140);
-//        panel.add(bloodLabel);
-//
-//        Image energyImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/energy.png"));
-//        ImageIcon energyIcon = new ImageIcon(energyImg);
-//        JLabel energyLabel = new JLabel();
-//        energyLabel.setIcon(energyIcon);
-//        energyLabel.setBounds(10,65,770,140);
-//        panel.add(energyLabel);
         Font font1 = new Font("宋体",Font.BOLD,42);
         JLabel bloodText = new JLabel("体力值:");
         bloodText.setBounds(50,10,200,100);
@@ -63,7 +62,7 @@ public class FightPanel {
 
 
         //玩家角色
-        Image roleImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/hero-1.png"));
+        Image roleImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/hero/" + playerInfo.getHero().getImg()));
         ImageIcon roleIcon = new ImageIcon(roleImg);
         JButton heroButton = new JButton();
         heroButton.setIcon(roleIcon);
@@ -73,11 +72,11 @@ public class FightPanel {
         heroButton.setFocusable(true);
         panel.add(heroButton);
         //NPC角色
-        Image npcImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/npc/npc_12.png"));
+        Image npcImg = Toolkit.getDefaultToolkit().getImage(getClass().getResource(npc.getBImg()));
         ImageIcon npcIcon = new ImageIcon(npcImg);
         JButton npcButton = new JButton();
         npcButton.setIcon(npcIcon);
-        npcButton.setBounds(800,180,roleIcon.getIconWidth(),npcIcon.getIconHeight());
+        npcButton.setBounds(850,100, npcIcon.getIconWidth(),npcIcon.getIconHeight());
         npcButton.setContentAreaFilled(false);
         npcButton.setBorderPainted(false);
         npcButton.setFocusable(true);
@@ -100,5 +99,10 @@ public class FightPanel {
 
     public BackgroundPanel getPanel(){
         return panel;
+    }
+
+    private void back(){
+        SingletonFrame frame = SingletonFrame.getInstance();
+        frame.nextPanel(mapPanel.getBg());
     }
 }

@@ -1,6 +1,5 @@
 package com.mrzhou.game.module.organism;
 
-import com.alibaba.fastjson.JSON;
 import com.mrzhou.game.datapool.DataPool;
 import com.mrzhou.game.datapool.DataPoolFactory;
 import com.mrzhou.game.module.equip.Bag;
@@ -10,7 +9,6 @@ import com.mrzhou.game.module.weapon.Weapon;
 import com.mrzhou.game.util.ConstantsUtil;
 import lombok.Data;
 
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 类说明：玩家

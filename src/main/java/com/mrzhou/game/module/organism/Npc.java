@@ -8,18 +8,20 @@ public class Npc implements Cloneable{
     private int attack;
     private int level;
     private String img;
-    private String attackImg;
+    private String bImg;
 
     public Npc() {
     }
 
-    public Npc(int blood, int attack, int level) {
+    public Npc(int blood, int attack, int level, String img, String bImg) {
         this.blood = blood;
         this.attack = attack;
         this.level = level;
+        this.img = img;
+        this.bImg = bImg;
     }
 
-    protected Npc clone() throws CloneNotSupportedException{
+    public Npc clone() throws CloneNotSupportedException{
         return (Npc) super.clone();
     }
 

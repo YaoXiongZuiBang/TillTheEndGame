@@ -63,7 +63,7 @@ public abstract class Equip {
     /**
      * 初始化装备
      */
-    public void addBuff(){
+    private void addBuffItem(){
         for(Buff buff: buffList){
             switch (buff.getType()){
                 case 1:
@@ -86,7 +86,7 @@ public abstract class Equip {
     public void init(){
         buffList = new ArrayList<>();
         this.initBuffs();
-        this.addBuff();
+        this.addBuffItem();
     }
 
 

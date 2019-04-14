@@ -2,3 +2,5 @@
 target/*
 src/main/resources/img/*/*.psd
 /game.iml
+src/main/resources/uml/*
+classes/*
